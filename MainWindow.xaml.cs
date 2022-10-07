@@ -19,6 +19,8 @@ namespace Calculator
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+    
+    
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -35,6 +37,9 @@ namespace Calculator
 
         private void ButtonClick(Object sender, RoutedEventArgs e)
         {
+            int[] array = new int[] { 1, 2 };
+            Console.WriteLine(array.Length);
+
             string textButton = ((Button)e.OriginalSource).Content.ToString();
             
             try
@@ -53,13 +58,12 @@ namespace Calculator
                         break;
 
                     case "√":
-                        
                         result.Text = Math.Sqrt(double.Parse(text.Text)).ToString();
                         break;
                        
 
                     case "←":
-                        result.Text = text.Text.Substring(text.Text.Length - 1);
+                        text.Text = text.Text.Substring(0, text.Text.Length - 1);
                         break;
 
                     //case "±":
